@@ -43,3 +43,16 @@ cProfile.run('sum((i**2 for i in range(10000)))') # this one is slower but memor
 cProfile.runn('sum([i**2 for i in range(10000)])')
 
 '''
+#Creating a datapipeline using generator
+file_name = 'test.csv'
+lines = (line for line in open('/test_data/'+file_name))
+list_line = (s.rstrip().split(',') for s in lines)
+cols = next(list_line)
+my_dict = (dict(zip(cols, data) for data in list_line))
+funding = (
+    int(cy_dict["raisedAmt"])
+    for cy_dict in my_dict
+    if cy_dict["round"] == 'a'
+)
+total_series_a = sum(funding)
+print(f"Total series A fundraising: ${total_series_a}")
