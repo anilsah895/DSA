@@ -39,7 +39,7 @@ sys.getsizeof(sq_lc2)
 
 #To check speed
 import cprofile
-cProfile.run('sum((i**2 for i in range(10000)))') # this one is slower but memory efficient
+cProfile.run('sum((i**2 for i in range(10000)))') # this one is slower but memory efficientexit
 cProfile.runn('sum([i**2 for i in range(10000)])')
 
 '''
